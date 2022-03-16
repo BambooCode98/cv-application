@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 
 export default function ProfileForm(props) {
-  const [values, changeState] = useState({
+  const [proValues, changeState] = useState({
     Description: "", 
     Name: "",
   });
@@ -11,28 +11,30 @@ export default function ProfileForm(props) {
 
   function onSubmit(event) {
     event.preventDefault();
-    console.log(values);
+    // console.log(proValues);
+    localStorage.setItem("proValues", JSON.stringify(proValues));
+
   }
 
   function nameChanges(event) {
-    changeState({...values, Name: event.target.value})
+    changeState({...proValues, Name: event.target.value})
   }
 
   function descChanges(event) {
-    changeState({...values, Description: event.target.value})
+    changeState({...proValues, Description: event.target.value})
   }
 
   return (
     <form className={props.content} onSubmit={onSubmit}>
       <h3>{props.content}</h3>
       <p>{props.name}</p>
-      <textarea type={props.type} name={props.name} value={values.Description} row={4} column={25} onChange={descChanges}/>
+      <textarea type={props.type} name={props.name} value={proValues.Description} row={4} column={25} onChange={descChanges}/>
       <br />
       <br />
       {props.userName}
       <br />
       <br />
-      <input type={props.type} name={props.name} value={values.Name} onChange={nameChanges}/>
+      <input type={props.type} name={props.name} value={proValues.Name} onChange={nameChanges}/>
       <br />
       <br />
       <br />

@@ -12,7 +12,8 @@ export default function JobForm(props) {
 
   function onSubmit(event) {
     event.preventDefault();
-    console.log(values);
+    // console.log(values);
+    localStorage.setItem("values", JSON.stringify(values));
   }
 
   function positionChanges(event) {

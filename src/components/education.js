@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 
 export default function EduForm(props) {
-  const [values, changeState] = useState({
+  const [eduValues, changeState] = useState({
     University: "", 
     Degree: "", 
     dateBegin: "",
@@ -12,23 +12,24 @@ export default function EduForm(props) {
 
   function onSubmit(event) {
     event.preventDefault();
-    console.log(values);
+    // console.log(eduValues);
+    localStorage.setItem("eduValues", JSON.stringify(eduValues));
   }
 
   function uniChanges(event) {
-    changeState({...values, University: event.target.value})
+    changeState({...eduValues, University: event.target.value})
   }
 
   function degreeChanges(event) {
-    changeState({...values, Degree: event.target.value})
+    changeState({...eduValues, Degree: event.target.value})
   }
 
   function dbChanges(event) {
-    changeState({...values, dateBegin: event.target.value})
+    changeState({...eduValues, dateBegin: event.target.value})
   }
 
   function deChanges(event) {
-    changeState({...values, dateEnd: event.target.value})
+    changeState({...eduValues, dateEnd: event.target.value})
   }
 
   function dateOnForm() {
@@ -40,14 +41,14 @@ export default function EduForm(props) {
           type="text" 
           name="dateBegin" 
           placeholder='Beginning Date' 
-          value={values.dateBegin}
+          value={eduValues.dateBegin}
           onChange={dbChanges}
           />--
           <input 
           type="text" 
           name="dateEnd" 
           placeholder='End Date'
-          value={values.dateEnd} 
+          value={eduValues.dateEnd} 
           onChange={deChanges}
           />
         </div>
@@ -59,13 +60,13 @@ export default function EduForm(props) {
     <form className={props.content} onSubmit={onSubmit}>
       <h3>{props.content}</h3>
       <p>{props.name}</p>
-      <input type={props.type} name={props.name} value={values.University} onChange={uniChanges}/>
+      <input type={props.type} name={props.name} value={eduValues.University} onChange={uniChanges}/>
       <br />
       <br />
       {props.place}
       <br />
       <br />
-      <input type={props.type} name={props.name} value={values.Degree} onChange={degreeChanges}/>
+      <input type={props.type} name={props.name} value={eduValues.Degree} onChange={degreeChanges}/>
       <br />
       {dateOnForm()}
       <br />
