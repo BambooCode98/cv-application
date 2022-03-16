@@ -71,7 +71,7 @@ export default function EduForm(props) {
       {dateOnForm()}
       <br />
       <br />
-      <input type="submit"/>
+      <input type="submit" value="Add/Edit"/>
     </form>
   )
 }

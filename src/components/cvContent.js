@@ -6,95 +6,6 @@ import JobForm from './jobs';
 import EduForm from './education';
 
 
-// function Forms(props) {
-//   const [values, changeState] = useState({
-//     Description: "", 
-//     Name: "",
-//     Position: "", 
-//     Company: "",
-//     University: "", 
-//     Degree: "", 
-//     dateBegin: null,
-//     dateEnd: null,
-//   });
-
-//   console.log(values);
-
-//   function onSubmit(event) {
-//     event.preventDefault();
-//     console.log(event.values);
-//   }
-
-//   function handleChanges(event) {
-//     // let name = event.target.name;
-//     changeState({...values, Name: event.target.value})
-//   }
-
-//   function dateOnForm() {
-//     if(props.beginDate === "beginDate" && props.endDate === "endDate") {
-//       return(
-//         <div>
-//           <p>Date</p>
-//           <input 
-//           type="text" 
-//           name="dateBegin" 
-//           placeholder='Beginning Date' 
-//           value={values.dateBegin}
-//           onChange={handleChanges}
-//           />--
-//           <input 
-//           type="text" 
-//           name="dateEnd" 
-//           placeholder='End Date'
-//           value={values.dateEnd} 
-//           onChange={handleChanges}
-//           />
-//         </div>
-//       )
-//     }
-//   }
-
-//   return (
-//     <form className={props.content} onSubmit={onSubmit}>
-//       <h3>{props.content}</h3>
-//       <p>{props.name}</p>
-//       <input type={props.type} name={props.name} value={values.props.name} onChange={handleChanges}/>
-//       <br />
-//       <br />
-//       {props.place || props.userName}
-//       <br />
-//       <br />
-//       <input type={props.type} name={props.name} value={values.name} onChange={handleChanges}/>
-//       <br />
-//       {dateOnForm()}
-//       <br />
-//       <br />
-//       <input type="submit"/>
-//     </form>
-//   )
-// }
-
-
-// function FinalCv(props) {
-//   console.log(props);
-//   return(
-//   <div className="full-cv">
-//     <h1>CV</h1>
-//     <h2>Profile</h2>
-//     <div>
-//       <p>Overview:</p>
-//     </div>
-//     <h2>Work Experiences</h2>
-//     <p>
-
-//     </p>
-//     <h2>Education</h2>
-//     <p>
-
-//     </p>
-//   </div>
-//   );
-// }
 
 const profileData = JSON.parse(localStorage.getItem("proValues"));
 console.log(profileData);
@@ -112,6 +23,9 @@ function CvContent() {
     eduData,
   ]);
 
+
+
+
   function updateClick() {
     console.log(dataObjects);
     return(
@@ -126,6 +40,7 @@ function CvContent() {
       <p>Position: {dataObjects[1].Position}</p>
       <p>Company: {dataObjects[1].Company}</p>
       <p>{dataObjects[1].dateBegin} through {dataObjects[1].dateEnd}</p>
+      {/* <button>+Add Job</button> */}
       <h2>Education</h2>
       <p>University: {dataObjects[2].University}</p>
       <p>Degree: {dataObjects[2].Degree}</p>
@@ -149,7 +64,7 @@ function CvContent() {
       </div>
       <br />
       <form>
-        <button onClick={updateClick}>Update CV</button>
+        <button type="submit" onClick={updateClick}>Update CV</button>
       </form>
       <div>
         <div className="full-cv">

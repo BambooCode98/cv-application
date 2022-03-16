@@ -38,7 +38,7 @@ export default function ProfileForm(props) {
       <br />
       <br />
       <br />
-      <input type="submit"/>
+      <input type="submit" value="Add/Edit"/>
     </form>
   )
 }
